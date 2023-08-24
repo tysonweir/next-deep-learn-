@@ -1,0 +1,75 @@
+.item {
+  @apply shadow-md rounded-lg overflow-hidden bg-white m-4 flex flex-col gap-4;
+}
+
+.item img {
+  @apply w-full h-40 object-cover;
+}
+
+.content {
+  @apply w-full px-4 text-center;
+}
+
+.content h2 {
+  @apply my-2;
+}
+
+.date,
+.address {
+  @apply flex gap-2 items-center;
+}
+
+.date svg,
+.address svg {
+  @apply w-5 h-5 text-gray-600;
+}
+
+.content time {
+  @apply font-semibold text-gray-600;
+}
+
+.content address {
+  @apply my-2 text-gray-600 whitespace-pre;
+}
+
+.actions {
+  @apply flex flex-col p-4;
+}
+
+.actions a {
+  @apply block;
+}
+
+.actions a span {
+  @apply align-middle;
+}
+
+.icon {
+  @apply ml-2 inline-flex justify-center items-center;
+}
+
+.icon svg {
+  @apply w-5 h-5;
+}
+
+@media (min-width: 768px) {
+  .item {
+    @apply flex-row;
+  }
+
+  .item img {
+    @apply w-40 h-56;
+  }
+
+  .content {
+    @apply w-60 px-0 text-left;
+  }
+
+  .content h2 {
+    @apply mt-4;
+  }
+
+  .actions {
+    @apply flex-row justify-end;
+  }
+}
