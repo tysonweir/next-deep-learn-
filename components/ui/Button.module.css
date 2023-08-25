@@ -1,0 +1,8 @@
+.btn {
+  @apply no-underline cursor-pointer bg-teal-500 border border-teal-500 rounded-md text-teal-100 py-2 px-6 text-center shadow-sm;
+}
+
+.btn:hover,
+.btn:active {
+  @apply bg-teal-600 border-teal-600;
+}
