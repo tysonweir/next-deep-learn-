@@ -2,7 +2,6 @@ import { EventType } from "../../types/event";
 import DateIcon from "../icons/DateIcon";
 import AddressIcon from "../icons/AddressIcon";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
-import style from "./EventItem.module.css";
 import Button from "../ui/Button";
 
 interface EventItemProps {
@@ -21,25 +20,36 @@ const EventItem: React.FC<EventItemProps> = ({ item }) => {
   const exploreLink = `/events/${id}`;
 
   return (
-    <li className={style.item} key={id}>
-      <img src={"/" + image} alt="..." />
-      <div className={style.main}>
-        <div className={style.content}>
-          <h2 className={style.title}>{title}</h2>
-          <div className={style.date}>
+    <li
+      className="shadow-md rounded-lg overflow-hidden bg-white m-4 flex "
+      key={id}
+    >
+      <img className="w-full h-40 object-cover" src={"/" + image} alt="Event" />
+      <div className="w-full  pr-4 flex flex-col">
+        <h2 className="my-2">{title}</h2>
+        <div className="flex gap-2 items-center">
+          <span className="w-5 h-5 text-gray-600">
             <DateIcon />
-            <time>{humanReadableDate}</time>
-          </div>
-          <div className={style.address}>
-            <AddressIcon />
-            <address>{formattedAddress}</address>
-          </div>
+          </span>
+          <time className="font-semibold text-gray-600">
+            {humanReadableDate}
+          </time>
         </div>
-        <div className={style.actions}>
+        <div className="flex gap-2 items-center">
+          <span className="w-5 h-5 text-gray-600">
+            <AddressIcon />
+          </span>
+          <address className="my-2 text-gray-600 whitespace-pre">
+            {formattedAddress}
+          </address>
+        </div>
+        <div className="">
           <Button link={exploreLink}>
             <span>Explore Event</span>
-            <span className={style.icon}>
-              <ArrowRightIcon />
+            <span className="ml-2 inline-flex justify-center items-center">
+              <span className="w-5 h-5">
+                <ArrowRightIcon />
+              </span>
             </span>
           </Button>
         </div>

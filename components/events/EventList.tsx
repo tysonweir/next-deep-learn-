@@ -1,6 +1,5 @@
 import { EventType } from "../../types/event";
 import EventItem from "./EventItem";
-import style from "./EventList.module.css";
 
 interface EventListProps {
   events: EventType[];
@@ -9,7 +8,7 @@ interface EventListProps {
 const EventList: React.FC<EventListProps> = ({ events }) => {
   return (
     <div>
-      <ul className={style.list}>
+      <ul className=" w-[90%] max-w-[40rem] mx-auto my-20">
         {events.map((item) => (
           <EventItem key={item.id} item={item} />
         ))}
