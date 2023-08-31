@@ -21,11 +21,18 @@ const EventItem: React.FC<EventItemProps> = ({ item }) => {
 
   return (
     <li
-      className="shadow-md rounded-lg overflow-hidden bg-white m-4 flex "
+      className="shadow-md rounded-lg overflow-hidden bg-white m-4 flex items-stretch"
       key={id}
     >
-      <img className="w-full h-40 object-cover" src={"/" + image} alt="Event" />
-      <div className="w-full  pr-4 flex flex-col">
+      <div className="w-40 h-40 relative">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="absolute w-full h-full object-cover"
+          src={"/" + image}
+          alt="Event"
+        />
+      </div>
+      <div className="flex-grow ml-4 pr-4 flex flex-col justify-between relative">
         <h2 className="my-2">{title}</h2>
         <div className="flex gap-2 items-center">
           <span className="w-5 h-5 text-gray-600">
@@ -43,7 +50,7 @@ const EventItem: React.FC<EventItemProps> = ({ item }) => {
             {formattedAddress}
           </address>
         </div>
-        <div className="">
+        <div className="self-end pb-4">
           <Button link={exploreLink}>
             <span>Explore Event</span>
             <span className="ml-2 inline-flex justify-center items-center">
