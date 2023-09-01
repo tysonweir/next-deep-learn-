@@ -1,17 +1,27 @@
 import React from "react";
 import Link from "next/link";
-import style from "./Button.module.css";
-
 interface ButtonProps {
   children: React.ReactNode;
-  link: string;
+  link?: string;
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, link }) => {
+const Button: React.FC<ButtonProps> = ({ children, link, onClick }) => {
+  const commonClasses =
+    "no-underline cursor-pointer bg-teal-500 border border-teal-500 rounded-md text-teal-100 py-2 px-6 text-center shadow-sm hover:bg-teal-600 active:bg-teal-600 hover:border-teal-600 active:border-teal-600";
+
+  if (link) {
+    return (
+      <Link className={commonClasses} href={link} passHref>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link href={link} passHref legacyBehavior>
-      <a className={style.btn}>{children}</a>
-    </Link>
+    <button className={commonClasses} onClick={onClick}>
+      {children}
+    </button>
   );
 };
 
