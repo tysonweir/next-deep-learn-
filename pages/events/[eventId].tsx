@@ -4,6 +4,7 @@ import EventContent from "../../components/eventDetails/eventContent";
 import { getEventById } from "@/dummy-data";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import ErrorAlert from "@/components/ui/ErrorAlert";
 
 function EventsIdPage() {
   const router = useRouter();
@@ -12,7 +13,11 @@ function EventsIdPage() {
   const event = getEventById(eventId);
 
   if (!event) {
-    return <p>No event found!</p>;
+    return (
+      <ErrorAlert>
+        <p>No event found!</p>
+      </ErrorAlert>
+    );
   }
 
   return (
